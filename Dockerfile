@@ -1,0 +1,13 @@
+FROM resin/armv7hf-debian:jessie                                                                                                                                                              │·········
+                                                                                                                                                                                              │·········
+# Set environment variable to get default password instead of password prompt                                                                                                                 │·········
+ENV DEBIAN_FRONTEND noninteractive                                                                                                                                                            │·········
+                                                                                                                                                                                              │·········
+RUN echo "deb http://security.debian.org/debian-security jessie/updates main" > /etc/apt.sources.list                                                                                         │·········
+RUN apt-get update                                                                                                                                                                            │·········
+RUN apt-get install -y mariadb-server                                                                                                                                                         │·········
+                                                                                                                                                                                              │·········
+EXPOSE 3306                                                                                                                                                                                   │·········
+CMD ["mysqld_safe"]                                                                                                                                                                           │·········
+                                                                                                                                                                                              │·········
+                                                                                                                                                                                              
